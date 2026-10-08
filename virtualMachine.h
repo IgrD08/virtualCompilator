@@ -1,5 +1,5 @@
-#ifndef INTERPRETER_H
-#define INTERPRETER_H
+#ifndef VIRTUAL_MACHINE_H
+#define VIRTUAL_MACHINE_H
 
 #include <stdio.h>
 #include <assert.h>

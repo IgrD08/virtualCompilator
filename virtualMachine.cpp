@@ -1,5 +1,5 @@
 #include "stack.h"
-#include "interpreter.h"
+#include "virtualMachine.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
 
     int dp = fileOpenDp("data.asm", O_RDONLY);
 
-    read(dp, buffer, fileInfo.st_size);
+    int realCount = read(dp, buffer, fileInfo.st_size);
 
-    buffer[fileInfo.st_size] = '\0';
+    buffer[realCount] = '\0';
 
     int nLines = 0;
     char *pointer = buffer;
@@ -47,41 +47,55 @@ int main(int argc, char *argv[])
     STACK_INIT(&stk1, initialCapacity);
 
     int value = 0;
-    char call[10] = {};
+    char command[10] = {};
 
     for (int i = 0; i < nLines; i++)
     {
-        sscanf(index[i], "%s %d", call, &value);
-//TODO - печатает последний элемент дважды
-        printf("%s\n", call);
-        printf("%d\n", value);
-//TODO - в последующем заменить на switch
-        if (strcmp(call, "PUSH") == 0)
-        {
-            printf("1\n");
-            stackPush(&stk1, value);
-            stackDump(&stk1, stdout);
+        command[0] = '\0';
+        value = 0;
 
-        }
-        else if (strcmp(call, "ADD") == 0)
+        int number = sscanf(index[i], "%s %d", command, &value);
+        if (number <= 0)
+            continue;
+//TODO - в последующем заменить на switch
+
+        if (strcmp(command, "PUSH") == 0)
         {
-            stackPush(&stk1, stackPop(&stk1) + stackPop(&stk1));
+            stackPush(&stk1, value);
         }
-        else if (strcmp(call, "SUB") == 0)
+        else if (strcmp(command, "ADD") == 0)
         {
-            stackPush(&stk1, -stackPop(&stk1) + stackPop(&stk1));
+            structEnum_t a = stackPop(&stk1);
+            structEnum_t b = stackPop(&stk1);
+            stackPush(&stk1, a + b);
         }
-        else if (strcmp(call, "SUB") == 0)
+        else if (strcmp(command, "SUB") == 0)
         {
-            stackPush(&stk1, stackPop(&stk1) / (stackPop(&stk1)));
+            structEnum_t a = stackPop(&stk1);
+            structEnum_t b = stackPop(&stk1);
+            stackPush(&stk1, b - a);
         }
-        else if (strcmp(call, "OUT") == 0)
+        else if (strcmp(command, "DIV") == 0)
+        {
+            structEnum_t a = stackPop(&stk1);
+            structEnum_t b = stackPop(&stk1);
+            if (a != 0)
+            {
+                stackPush(&stk1,  b / a);
+            }
+            else
+            {
+                fprintf(stderr, "Unable operation");
+
+                return INTERPRETER_ERROR;
+            }
+        }
+        else if (strcmp(command, "OUT") == 0)
         {
             structEnum_t value = stackPop(&stk1);
             printf(SPEC, value);
-            stackPush(&stk1, value);
         }
-        else if (strcmp(call, "HLT") == 0)
+        else if (strcmp(command, "HLT") == 0)
         {
             break;
         }
