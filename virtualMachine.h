@@ -1,23 +1,12 @@
 #ifndef VIRTUAL_MACHINE_H
 #define VIRTUAL_MACHINE_H
 
-#include <stdio.h>
-#include <assert.h>
-#include <string.h>
-#include <stdint.h>
-#include <ctype.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/stat.h>
-
-enum returnValue
+struct processor
 {
-    INTERPRETER_ERROR = -1,
-    INTERPRETER_CORRECT = 0
+    stack_t stk;
+    int register[4];
+    int *code;
+    int IP;
 };
-
-int fileOpenDp(const char *fileName, int flag);
-returnValue fileCloseDp(int descriptor);
 
 #endif

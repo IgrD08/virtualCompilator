@@ -1,3 +1,4 @@
+#include "commands.h"
 #include "stack.h"
 #include "assembler.h"
 
@@ -10,9 +11,10 @@ int main(int argc, char *argv[])
 
     buffer = (char *)(calloc(fileInfo.st_size + 1, sizeof(char)));
 
-    int dp = fileOpenDp("data.asm", O_RDONLY);
+    FILE *fileAssemblerRead = NULL;
+    fileOpening(&fileAssemblerRead, "data.asm", "r");
 
-    int realCount = read(dp, buffer, fileInfo.st_size);
+    int realCount = fread(buffer, sizeof(char), fileInfo.st_size, fileAssemblerRead);
 
     buffer[realCount] = '\0';
 
@@ -40,20 +42,20 @@ int main(int argc, char *argv[])
         i++;
     }
 
-    fileCloseDp(dp);
+    closeFile(&fileAssemblerRead);
     //------------------------------------------------------------------------
-    FILE *filePointer = NULL;
-    fileOpening(&filePointer, "numericData.asm");
 
     int value = 0;
     char command[10] = {};
+    int *data = (int *)calloc(nLines * 2, sizeof(int));
+    int dataIndex = 0;
 
     for (int i = 0; i < nLines; i++)
     {
         command[0] = '\0';
         value = 0;
 
-        int number = sscanf(index[i], "%s %d\n", command, &value);
+        int number = sscanf(index[i], "%s %d", command, &value);
         if (number <= 0)
             continue;
 
@@ -61,70 +63,77 @@ int main(int argc, char *argv[])
         {
             case 'P':
                 if (!strcmp(command, "PUSH"))
-                    fprintf(filePointer, "%d %d\n", 1, value);
+                {
+                    data[dataIndex] = PUSH;
+                    dataIndex++;
+                    data[dataIndex] = value;
+                    dataIndex++;
+                }
 
                 break;
 
             case 'A':
                 if (!strcmp(command, "ADD"))
-                    fprintf(filePointer, "%d %d\n", 2, value);
+                {
+                    data[dataIndex] = ADD;
+                    dataIndex++;
+                }
 
                 break;
 
             case 'S':
                 if (!strcmp(command, "SUB"))
-                    fprintf(filePointer, "%d %d\n", 3, value);
+                {
+                    data[dataIndex] = SUB;
+                    dataIndex++;
+                }
 
                 break;
 
             case 'D':
                 if (!strcmp(command, "DIV"))
-                    fprintf(filePointer, "%d %d\n", 4, value);
+                {
+                    data[dataIndex] = DIV;
+                    dataIndex++;
+                }
 
                 break;
 
             case 'O':
-                if (!strcmp(command, "OUT"))
-                    fprintf(filePointer, "%d %d\n", 5, value);
+                if (!strcmp(command, "OUT_OF"))
+                {
+                    data[dataIndex] = OUT_OF;
+                    dataIndex++;
+                }
 
                 break;
 
             case 'H':
                 if (!strcmp(command, "HLT"))
-                    fprintf(filePointer, "%d %d\n", 0, value);
+                {
+                    data[dataIndex] = HLT;
+                    dataIndex++;
+                }
+
+                break;
+
+            default:
+                fprintf(stderr, "No such command");
 
                 break;
         }
     }
 
+    FILE *filePointerWrite = NULL;
+    fileOpening(&filePointerWrite, "numericData.asm", "wb");
+
+    fwrite(data, sizeof(int), dataIndex, filePointerWrite);
+    free(data);
     free(buffer);
     free(index);
 
-    closeFile(&filePointer);
+    closeFile(&filePointerWrite);
 
     return INTERPRETER_CORRECT;
 }
 
-int fileOpenDp(const char *fileName, int flag)
-{
-    int fileDescriptor = open(fileName, flag);
-
-    if (fileDescriptor == -1)
-    {
-        fprintf(stderr, "Unable to open %s\n", fileName);
-
-        return INTERPRETER_ERROR;
-    }
-
-    return fileDescriptor;
-}
-
-returnValue fileCloseDp(int descriptor)
-{
-    if (close(descriptor) == -1)
-    {
-        return INTERPRETER_ERROR;
-    }
-
-    return INTERPRETER_CORRECT;
-}

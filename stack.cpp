@@ -166,8 +166,21 @@ returnStatus stackDump(stack_t *stk, FILE *fp)
 
 bool compareValues(const structEnum_t value1, const structEnum_t value2)
 {
-    if (*(const uint64_t*)(&value1) == *(const uint64_t*)(&value2))
-        return 1;
+    if (sizeof(structEnum_t) == 1)
+    {
+        if (*(const uint8_t*)(&value1) == *(const uint8_t*)(&value2))
+            return 1;
+    }
+    if (sizeof(structEnum_t) == 4)
+    {
+        if (*(const uint32_t*)(&value1) == *(const uint32_t*)(&value2))
+            return 1;
+    }
+    if (sizeof(structEnum_t) == 8)
+    {
+        if (*(const uint64_t*)(&value1) == *(const uint64_t*)(&value2))
+            return 1;
+    }
 
     return 0;
 }

@@ -1,8 +1,8 @@
 #ifndef STACK_H
 #define STACK_H
 
-typedef double structEnum_t;
-#define SPEC "%lg"
+typedef int structEnum_t;
+#define SPEC "%d"
 
 #define STACK_DEBUG
 
@@ -26,7 +26,7 @@ typedef double structEnum_t;
 #include <string.h>
 #include <windows.h>
 
-const structEnum_t POISON = NAN;
+const structEnum_t POISON = -67;
 const size_t MAX = (size_t)(-1) / 2;
 
 const structEnum_t canary1 = (const structEnum_t)0xEDA;
@@ -86,7 +86,7 @@ error zeroStackCheck(stack_t *stk);
 error allocationCheck(structEnum_t *ptr);
 
 returnStatus stackDump(stack_t *stk, FILE *fp);
-bool fileOpening(FILE **fp, const char *fileName);
+bool fileOpening(FILE **fp, const char *fileName, const char *fileFlag);
 bool closeFile(FILE **fp);
 returnStatus printStackVerify(stack_t *stk, error flag);
 

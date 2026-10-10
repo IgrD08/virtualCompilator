@@ -114,7 +114,7 @@ returnStatus printStackVerify(stack_t *stk, error flag)
 
     size_t fatalFlag = 0;
 
-    if (fileOpening(&filepointer, "errors.log") != 0)
+    if (fileOpening(&filepointer, "errors.log", "a") != 0)
     {
         return ERROR_STATUS;
     }
@@ -225,9 +225,9 @@ returnStatus printStackVerify(stack_t *stk, error flag)
     return NORMAL_STATUS;
 }
 
-bool fileOpening(FILE **fp, const char *fileName)
+bool fileOpening(FILE **fp, const char *fileName, const char *fileFlag)
 {
-    if ((*fp = fopen(fileName, "a")) == NULL)
+    if ((*fp = fopen(fileName, fileFlag)) == NULL)
     {
         fprintf(stderr, "ERROR: Failed to open/close file\n");
 

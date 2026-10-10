@@ -1,134 +1,93 @@
+#include "commands.h"
 #include "stack.h"
 #include "virtualMachine.h"
 
 int main(int argc, char *argv[])
 {
-    char *buffer = NULL;
+    processor proc = {};
+    proc.stk = {};
+    STACK_INIT(&(proc.stk), initialCapacity);
 
     struct stat fileInfo;
-    if (stat("data.asm", &fileInfo) == -1) return INTERPRETER_ERROR;
+    if (stat("numericData.asm", &fileInfo) == -1) return INTERPRETER_ERROR;
 
-    buffer = (char *)(calloc(fileInfo.st_size + 1, sizeof(char)));
+    proc.code = (int *) calloc(fileInfo.st_size / sizeof(int), sizeof(int));
 
-    int dp = fileOpenDp("data.asm", O_RDONLY);
+    FILE *filePointer = NULL;
+    fileOpening(&filePointer, "numericData.asm", "r");
 
-    int realCount = read(dp, buffer, fileInfo.st_size);
+    int count = fread(proc.code, sizeof(int), fileInfo.st_size / sizeof(int), filePointer);
 
-    buffer[realCount] = '\0';
+    closeFile(&filePointer);
 
-    int nLines = 0;
-    char *pointer = buffer;
-
-    while ((pointer = strchr(pointer, '\n')) != NULL)
+    for (proc.IP = 0; proc.IP < count; proc.IP++)
     {
-        nLines++;
-        pointer += 1;
-    }
-
-    pointer = buffer;
-
-    char **index = NULL;
-    index = (char **)calloc(nLines, sizeof(char *));
-
-    int i = 1;
-    index[0] = pointer;
-    while ((pointer = strchr(pointer, '\n')) != NULL && i < nLines)
-    {
-        *pointer = '\0';
-        pointer += 1;
-        index[i] = pointer;
-        i++;
-    }
-
-    fileCloseDp(dp);
-    //------------------------------------------------------------------------
-    stack_t stk1 = {};
-    size_t initialCapacity = 10;
-    STACK_INIT(&stk1, initialCapacity);
-
-    int value = 0;
-    char command[10] = {};
-
-    for (int i = 0; i < nLines; i++)
-    {
-        command[0] = '\0';
-        value = 0;
-
-        int number = sscanf(index[i], "%s %d", command, &value);
-        if (number <= 0)
-            continue;
-//TODO - в последующем заменить на switch
-
-        if (strcmp(command, "PUSH") == 0)
+        switch (proc.code[proc.IP])
         {
-            stackPush(&stk1, value);
-        }
-        else if (strcmp(command, "ADD") == 0)
-        {
-            structEnum_t a = stackPop(&stk1);
-            structEnum_t b = stackPop(&stk1);
-            stackPush(&stk1, a + b);
-        }
-        else if (strcmp(command, "SUB") == 0)
-        {
-            structEnum_t a = stackPop(&stk1);
-            structEnum_t b = stackPop(&stk1);
-            stackPush(&stk1, b - a);
-        }
-        else if (strcmp(command, "DIV") == 0)
-        {
-            structEnum_t a = stackPop(&stk1);
-            structEnum_t b = stackPop(&stk1);
-            if (a != 0)
+            case HLT:
+                return INTERPRETER_CORRECT;
+
+                break;
+
+            case PUSH:
+                push(&proc);
+
+                break;
+
+            case ADD:
             {
-                stackPush(&stk1,  b / a);
+                structEnum_t a = stackPop(&proc.stk);
+                structEnum_t b = stackPop(&proc.stk);
+                stackPush(&proc.stk, a + b);
             }
-            else
+
+                break;
+
+            case SUB:
             {
-                fprintf(stderr, "Unable operation");
-
-                return INTERPRETER_ERROR;
+                structEnum_t a = stackPop(&proc.stk);
+                structEnum_t b = stackPop(&proc.stk);
+                stackPush(&proc.stk, b - a);
             }
-        }
-        else if (strcmp(command, "OUT") == 0)
-        {
-            structEnum_t value = stackPop(&stk1);
-            printf(SPEC, value);
-        }
-        else if (strcmp(command, "HLT") == 0)
-        {
-            break;
+
+                break;
+
+            case DIV:
+            {
+                structEnum_t a = stackPop(&proc.stk);
+                structEnum_t b = stackPop(&proc.stk);
+                if (a != 0)
+                {
+                    stackPush(&proc.stk,  b / a);
+                }
+                else
+                {
+                    fprintf(stderr, "Unable operation\n");
+
+                    return INTERPRETER_ERROR;
+                }
+            }
+
+                break;
+
+            case OUT_OF:
+            {
+                structEnum_t value = stackPop(&proc.stk);
+                printf(SPEC"\n", value);
+            }
+
+                break;
+
+            default:
+                fprintf(stderr, "No such command\n");
+
+                break;
         }
     }
 
-    stackDestroy(&stk1);
+    stackDestroy(&proc.stk);
 
-    free(buffer);
-    free(index);
-
-    return INTERPRETER_CORRECT;
-}
-
-int fileOpenDp(const char *fileName, int flag)
-{
-    int fileDescriptor = open(fileName, flag);
-
-    if (fileDescriptor == -1)
-    {
-        fprintf(stderr, "Unable to open %s\n", fileName);
-
-        return INTERPRETER_ERROR;
-    }
-
-    return fileDescriptor;
-}
-
-returnValue fileCloseDp(int descriptor)
-{
-    if (close(descriptor) == -1)
-    {
-        return INTERPRETER_ERROR;
-    }
+    free(proc.code);
 
     return INTERPRETER_CORRECT;
 }
