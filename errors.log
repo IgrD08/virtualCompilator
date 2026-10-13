@@ -1,632 +1,2513 @@
 ERROR: The function cannot be called
-stack "stk1" [00B8162C] created by main() virtualMachine.cpp :9
-{
-	capacity = 5
-	size = 0
-	data = [00B8162C]
-	{
-		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-	}
-}
-ERROR: The function cannot be called
-stack "stk1" [00B8162C] created by main() virtualMachine.cpp :9
+stack "stk1" [0087162C] created by main() virtualMachine.cpp :9
 {
 	capacity = 2
 	size = 0
-	data = [00B8162C]
+	data = [0087162C]
 	{
 		 [0] = -67 (POISON)
 		 [1] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D2162C] created by main() virtualMachine.cpp :9
-{
-	capacity = 5
-	size = 0
-	data = [00D2162C]
-	{
-		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-	}
-}
-ERROR: The function cannot be called
-stack "stk1" [00D2162C] created by main() virtualMachine.cpp :9
+stack "stk1" [00CE162C] created by main() virtualMachine.cpp :9
 {
 	capacity = 2
 	size = 0
-	data = [00D2162C]
+	data = [00CE162C]
 	{
 		 [0] = -67 (POISON)
 		 [1] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00C6162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 2
 	size = 0
-	data = [00C6162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
 		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00C6162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00C6162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D5162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00D5162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D5162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00D5162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00BE162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00BE162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00BE162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00BE162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00B6162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00B6162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00B6162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00B6162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00B6162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [00B6162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D0162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00D0162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D0162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00D0162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D0162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [00D0162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00E3162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00E3162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00E3162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00E3162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00E3162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [00E3162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D3162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00D3162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D3162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00D3162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D3162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [00D3162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00B9162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00B9162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00B9162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00B9162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00B9162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [00B9162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [0087162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [0087162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [0087162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [0087162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [0087162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [0087162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00BE162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00BE162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00BE162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00BE162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00BE162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [00BE162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00C2162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00C2162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00C2162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00C2162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00C2162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [00C2162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D2162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00D2162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D2162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 10
+	capacity = 1
 	size = 0
-	data = [00D2162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
-		 [5] = -67 (POISON)
-		 [6] = -67 (POISON)
-		 [7] = -67 (POISON)
-		 [8] = -67 (POISON)
-		 [9] = -67 (POISON)
 	}
 }
 ERROR: The function cannot be called
-stack "stk1" [00D2162C] created by main() virtualMachine.cpp :9
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
 {
-	capacity = 5
+	capacity = 1
 	size = 0
-	data = [00D2162C]
+	data = [008D162C]
 	{
 		 [0] = -67 (POISON)
-		 [1] = -67 (POISON)
-		 [2] = -67 (POISON)
-		 [3] = -67 (POISON)
-		 [4] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
+	}
+}
+ERROR: The function cannot be called
+stack "stk1" [008D162C] created by main() virtualMachine.cpp :9
+{
+	capacity = 1
+	size = 0
+	data = [008D162C]
+	{
+		 [0] = -67 (POISON)
 	}
 }

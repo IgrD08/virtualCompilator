@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
         switch (proc.code[proc.IP])
         {
             case HLT:
-                return INTERPRETER_CORRECT;
+                hlt(&proc);
 
                 break;
 
@@ -35,46 +35,37 @@ int main(int argc, char *argv[])
                 break;
 
             case ADD:
-            {
-                structEnum_t a = stackPop(&proc.stk);
-                structEnum_t b = stackPop(&proc.stk);
-                stackPush(&proc.stk, a + b);
-            }
+                add(&proc);
 
                 break;
 
             case SUB:
-            {
-                structEnum_t a = stackPop(&proc.stk);
-                structEnum_t b = stackPop(&proc.stk);
-                stackPush(&proc.stk, b - a);
-            }
+                sub(&proc);
+
+                break;
+
+            case MUL:
+                mul(&proc);
 
                 break;
 
             case DIV:
-            {
-                structEnum_t a = stackPop(&proc.stk);
-                structEnum_t b = stackPop(&proc.stk);
-                if (a != 0)
-                {
-                    stackPush(&proc.stk,  b / a);
-                }
-                else
-                {
-                    fprintf(stderr, "Unable operation\n");
-
-                    return INTERPRETER_ERROR;
-                }
-            }
+                div(&proc);
 
                 break;
 
             case OUT_OF:
-            {
-                structEnum_t value = stackPop(&proc.stk);
-                printf(SPEC"\n", value);
-            }
+                out(&proc);
+
+                break;
+
+            case POPr:
+               pop(&proc);
+
+                break;
+
+            case JMP:
+               jmp(&proc);
 
                 break;
 

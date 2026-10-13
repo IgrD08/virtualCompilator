@@ -4,9 +4,19 @@
 struct processor
 {
     stack_t stk;
-    int register[4];
+    int reg[5];
     int *code;
     int IP;
 };
+
+returnValue hlt(processor *proc);
+returnValue push(processor *proc);
+returnValue add(processor *proc);
+returnValue sub(processor *proc);
+returnValue mul(processor *proc);
+returnValue div(processor *proc);
+returnValue out(processor *proc);
+returnValue pop(processor *proc);
+returnValue jmp(processor *proc);
 
 #endif

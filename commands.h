@@ -14,24 +14,26 @@
 
 enum commands
 {
-    HLT = 0,
-    PUSH = 1,
-    POPr = 2,
-    ADD = 3,
-    SUB = 4,
-    MUL = 5,
-    DIV = 6,
-    OUT_OF = 7,
-    PUSHr = 8,
-    AX = 9,
-    BX = 10,
-    CX = 11,
-    DX = 12
+    HLT                = 0,
+    PUSH               = 1,
+    ADD                = 2,
+    SUB                = 3,
+    MUL                = 4,
+    DIV                = 5,
+    OUT_OF             = 6,
+    POPr               = 7,
+    JMP                = 8,
+    REGISTER_PLACEMENT = 9, //TODO - выделить в отдельный enum
+    AX                 = 10,
+    BX                 = 11,
+    CX                 = 12,
+    DX                 = 13
 };
 
 enum returnValue
 {
-    INTERPRETER_ERROR = -1,
+    PROGRAM_OVER        = -2,
+    INTERPRETER_ERROR   = -1,
     INTERPRETER_CORRECT = 0
 };
 

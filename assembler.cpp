@@ -47,16 +47,17 @@ int main(int argc, char *argv[])
 
     int value = 0;
     char command[10] = {};
+    char regist[10] = {};
     int *data = (int *)calloc(nLines * 2, sizeof(int));
     int dataIndex = 0;
 
     for (int i = 0; i < nLines; i++)
     {
         command[0] = '\0';
+        regist[0] = '\0';
         value = 0;
 
-        int number = sscanf(index[i], "%s %d", command, &value);
-        if (number <= 0)
+        if (sscanf(index[i], "%s", command) <= 0)
             continue;
 
         switch (command[0])
@@ -64,15 +65,63 @@ int main(int argc, char *argv[])
             case 'P':
                 if (!strcmp(command, "PUSH"))
                 {
-                    data[dataIndex] = PUSH;
+                    if (sscanf(index[i], "%*s %s", regist) <= 0)
+                        break;
+
+                    if (atoi(regist) == 0)
+                    {
+                        data[dataIndex] = PUSH;
+                        dataIndex++;
+
+                        if (!strcmp(regist, "AX"))
+                            data[dataIndex] = AX;
+                        else if (!strcmp(regist, "BX"))
+                            data[dataIndex] = BX;
+                        else if (!strcmp(regist, "CX"))
+                            data[dataIndex] = CX;
+                        else if (!strcmp(regist, "DX"))
+                            data[dataIndex] = DX;
+                        else
+                            printf("Register does not found");
+
+                        dataIndex++;
+                    }
+                    else
+                    {
+                        value = atoi(regist);
+                        data[dataIndex] = PUSH;
+                        dataIndex++;
+                        data[dataIndex] = value;
+                        dataIndex++;
+                    }
+                }
+
+                if (!strcmp(command, "POPr"))
+                {
+                    if (sscanf(index[i], "%*s %s", regist) <= 0)
+                        break;
+
+                    data[dataIndex] = POPr;
                     dataIndex++;
-                    data[dataIndex] = value;
+
+                    if (!strcmp(regist, "AX"))
+                        data[dataIndex] = AX;
+                    else if (!strcmp(regist, "BX"))
+                        data[dataIndex] = BX;
+                    else if (!strcmp(regist, "CX"))
+                        data[dataIndex] = CX;
+                    else if (!strcmp(regist, "DX"))
+                        data[dataIndex] = DX;
+                    else
+                        printf("Register does not found");
+
                     dataIndex++;
                 }
 
                 break;
 
             case 'A':
+
                 if (!strcmp(command, "ADD"))
                 {
                     data[dataIndex] = ADD;
@@ -82,6 +131,7 @@ int main(int argc, char *argv[])
                 break;
 
             case 'S':
+
                 if (!strcmp(command, "SUB"))
                 {
                     data[dataIndex] = SUB;
@@ -90,7 +140,18 @@ int main(int argc, char *argv[])
 
                 break;
 
+            case 'M':
+
+                if (!strcmp(command, "MUL"))
+                {
+                    data[dataIndex] = MUL;
+                    dataIndex++;
+                }
+
+                break;
+
             case 'D':
+
                 if (!strcmp(command, "DIV"))
                 {
                     data[dataIndex] = DIV;
@@ -100,6 +161,7 @@ int main(int argc, char *argv[])
                 break;
 
             case 'O':
+
                 if (!strcmp(command, "OUT_OF"))
                 {
                     data[dataIndex] = OUT_OF;
@@ -108,7 +170,22 @@ int main(int argc, char *argv[])
 
                 break;
 
+            case 'J':
+
+                if (!strcmp(command, "JMP"))
+                {
+                    if (sscanf(index[i], "%*s %d", &value) <= 0)
+                        break;
+                    data[dataIndex] = JMP;
+                    dataIndex++;
+                    data[dataIndex] = value;
+                    dataIndex++;
+                }
+
+                break;
+
             case 'H':
+
                 if (!strcmp(command, "HLT"))
                 {
                     data[dataIndex] = HLT;
@@ -128,6 +205,7 @@ int main(int argc, char *argv[])
     fileOpening(&filePointerWrite, "numericData.asm", "wb");
 
     fwrite(data, sizeof(int), dataIndex, filePointerWrite);
+
     free(data);
     free(buffer);
     free(index);
