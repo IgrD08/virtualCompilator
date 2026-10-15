@@ -4,60 +4,29 @@
 
 int main(int argc, char *argv[])
 {
-    char *buffer = NULL;
+    fileInfoStruc_t fileToReadInfo = {NULL, "data.asm", NULL, 0, NULL};
 
-    struct stat fileInfo;
-    if (stat("data.asm", &fileInfo) == -1) return INTERPRETER_ERROR;
-
-    buffer = (char *)(calloc(fileInfo.st_size + 1, sizeof(char)));
-
-    FILE *fileAssemblerRead = NULL;
-    fileOpening(&fileAssemblerRead, "data.asm", "r");
-
-    int realCount = fread(buffer, sizeof(char), fileInfo.st_size, fileAssemblerRead);
-
-    buffer[realCount] = '\0';
-
-    int nLines = 0;
-    char *pointer = buffer;
-
-    while ((pointer = strchr(pointer, '\n')) != NULL)
-    {
-        nLines++;
-        pointer += 1;
-    }
-
-    pointer = buffer;
-
-    char **index = NULL;
-    index = (char **)calloc(nLines, sizeof(char *));
-
-    int i = 1;
-    index[0] = pointer;
-    while ((pointer = strchr(pointer, '\n')) != NULL && i < nLines)
-    {
-        *pointer = '\0';
-        pointer += 1;
-        index[i] = pointer;
-        i++;
-    }
-
-    closeFile(&fileAssemblerRead);
-    //------------------------------------------------------------------------
+    if (fileProc(&fileToReadInfo) == INTERPRETER_ERROR)
+        return 1;
 
     int value = 0;
     char command[10] = {};
     char regist[10] = {};
-    int *data = (int *)calloc(nLines * 2, sizeof(int));
-    int dataIndex = 0;
 
-    for (int i = 0; i < nLines; i++)
+    int *data = NULL;
+    int dataIndex = 0;
+    int labels[20] = {};//заполнять -1
+
+    if ((data = (int *)calloc(fileToReadInfo.numberOfLines * 2, sizeof(int))) == NULL)
+        return 1;
+
+    for (int i = 0; i < fileToReadInfo.numberOfLines; i++)
     {
         command[0] = '\0';
         regist[0] = '\0';
         value = 0;
 
-        if (sscanf(index[i], "%s", command) <= 0)
+        if (sscanf(fileToReadInfo.individualLines[i], "%s", command) <= 0)
             continue;
 
         switch (command[0])
@@ -65,24 +34,24 @@ int main(int argc, char *argv[])
             case 'P':
                 if (!strcmp(command, "PUSH"))
                 {
-                    if (sscanf(index[i], "%*s %s", regist) <= 0)
+                    if (sscanf(fileToReadInfo.individualLines[i], "%*s %s", regist) <= 0)
                         break;
 
                     if (atoi(regist) == 0)
                     {
-                        data[dataIndex] = PUSH;
+                        data[dataIndex] = PUSHr;
                         dataIndex++;
 
                         if (!strcmp(regist, "AX"))
-                            data[dataIndex] = AX;
-                        else if (!strcmp(regist, "BX"))
-                            data[dataIndex] = BX;
-                        else if (!strcmp(regist, "CX"))
-                            data[dataIndex] = CX;
-                        else if (!strcmp(regist, "DX"))
-                            data[dataIndex] = DX;
-                        else
-                            printf("Register does not found");
+                        data[dataIndex] = AX;
+                    else if (!strcmp(regist, "BX"))
+                        data[dataIndex] = BX;
+                    else if (!strcmp(regist, "CX"))
+                        data[dataIndex] = CX;
+                    else if (!strcmp(regist, "DX"))
+                        data[dataIndex] = DX;
+                    else
+                        printf("Register does not found");
 
                         dataIndex++;
                     }
@@ -98,7 +67,7 @@ int main(int argc, char *argv[])
 
                 if (!strcmp(command, "POPr"))
                 {
-                    if (sscanf(index[i], "%*s %s", regist) <= 0)
+                    if (sscanf(fileToReadInfo.individualLines[i], "%*s %s", regist) <= 0)
                         break;
 
                     data[dataIndex] = POPr;
@@ -174,12 +143,25 @@ int main(int argc, char *argv[])
 
                 if (!strcmp(command, "JMP"))
                 {
-                    if (sscanf(index[i], "%*s %d", &value) <= 0)
+                    if (sscanf(fileToReadInfo.individualLines[i], "%*s %s", &regist) <= 0)
                         break;
+
                     data[dataIndex] = JMP;
                     dataIndex++;
-                    data[dataIndex] = value;
-                    dataIndex++;
+
+                    if (regist[0] == ':')
+                    {
+                        if ((value = atoi(&regist[1])) == 0)
+                            break;
+
+                        data[dataIndex] = labels[value];
+                        dataIndex++;
+                    }
+                    else
+                    {
+                        data[dataIndex] = value;
+                        dataIndex++;
+                    }
                 }
 
                 break;
@@ -194,24 +176,38 @@ int main(int argc, char *argv[])
 
                 break;
 
+            case ':':
+
+                if ((value = atoi(&command[1])) == 0)
+                    break;
+
+                labels[value] = dataIndex;
+
+                break;
+
             default:
                 fprintf(stderr, "No such command");
 
                 break;
         }
     }
+    // for (int i = 0; i < dataIndex; i++)
+    // {
+    //     printf("%d ", data[i]);
+    // }
 
     FILE *filePointerWrite = NULL;
-    fileOpening(&filePointerWrite, "numericData.asm", "wb");
+    if (fileOpening(&filePointerWrite, "numericData.asm", "wb") == 1)
+        return 1;
 
-    fwrite(data, sizeof(int), dataIndex, filePointerWrite);
+    fwrite(data, sizeof(int), dataIndex, filePointerWrite);//TODO - байтовый uint8-t
 
     free(data);
-    free(buffer);
-    free(index);
+    free(fileToReadInfo.individualLines);
+    free(fileToReadInfo.buffer);
 
-    closeFile(&filePointerWrite);
+    if (closeFile(&filePointerWrite) == 1)
+        return 1;
 
-    return INTERPRETER_CORRECT;
+    return 0;
 }
-

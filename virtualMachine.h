@@ -17,6 +17,7 @@ returnValue mul(processor *proc);
 returnValue div(processor *proc);
 returnValue out(processor *proc);
 returnValue pop(processor *proc);
+returnValue pushr(processor *proc);
 returnValue jmp(processor *proc);
 
 #endif

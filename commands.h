@@ -23,11 +23,15 @@ enum commands
     OUT_OF             = 6,
     POPr               = 7,
     JMP                = 8,
-    REGISTER_PLACEMENT = 9, //TODO - выделить в отдельный enum
-    AX                 = 10,
-    BX                 = 11,
-    CX                 = 12,
-    DX                 = 13
+    PUSHr              = 9
+};
+
+enum registerEnum
+{
+    AX                 = 1,
+    BX                 = 2,
+    CX                 = 3,
+    DX                 = 4
 };
 
 enum returnValue

@@ -11,24 +11,15 @@ returnValue push(processor *proc)
 {
     proc->IP++;
 
-    if (proc->code[proc->IP] == AX)
-        stackPush(&proc->stk, proc->reg[AX - REGISTER_PLACEMENT]);
-    else if (proc->code[proc->IP] == BX)
-        stackPush(&proc->stk, proc->reg[BX - REGISTER_PLACEMENT]);
-    else if (proc->code[proc->IP] == CX)
-        stackPush(&proc->stk, proc->reg[CX - REGISTER_PLACEMENT]);
-    else if (proc->code[proc->IP] == DX)
-        stackPush(&proc->stk, proc->reg[DX - REGISTER_PLACEMENT]);
-    else
-        stackPush(&proc->stk, proc->code[proc->IP]);
+    stackPush(&proc->stk, proc->code[proc->IP]);
 
     return INTERPRETER_CORRECT;
 }
 
 returnValue add(processor *proc)
 {
-    structEnum_t a = stackPop(&proc->stk);
-    structEnum_t b = stackPop(&proc->stk);
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
     stackPush(&proc->stk, a + b);
 
     return INTERPRETER_CORRECT;
@@ -36,8 +27,8 @@ returnValue add(processor *proc)
 
 returnValue sub(processor *proc)
 {
-    structEnum_t a = stackPop(&proc->stk);
-    structEnum_t b = stackPop(&proc->stk);
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
     stackPush(&proc->stk, b - a);
 
     return INTERPRETER_CORRECT;
@@ -45,8 +36,8 @@ returnValue sub(processor *proc)
 
 returnValue mul(processor *proc)
 {
-    structEnum_t a = stackPop(&proc->stk);
-    structEnum_t b = stackPop(&proc->stk);
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
     stackPush(&proc->stk, a * b);
 
     return INTERPRETER_CORRECT;
@@ -54,8 +45,8 @@ returnValue mul(processor *proc)
 
 returnValue div(processor *proc)
 {
-    structEnum_t a = stackPop(&proc->stk);
-    structEnum_t b = stackPop(&proc->stk);
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
     if (a != 0)
     {
         stackPush(&proc->stk,  b / a);
@@ -72,8 +63,8 @@ returnValue div(processor *proc)
 
 returnValue out(processor *proc)
 {
-    structEnum_t value = stackPop(&proc->stk);
-    printf(SPEC"\n", value);
+    int value = stackPop(&proc->stk);
+    printf("%d\n", value);
 
     return INTERPRETER_CORRECT;
 }
@@ -83,13 +74,29 @@ returnValue pop(processor *proc)
     proc->IP++;
 
     if (proc->code[proc->IP] == AX)
-        proc->reg[AX - REGISTER_PLACEMENT] = stackPop(&proc->stk);
+        proc->reg[AX] = stackPop(&proc->stk);
     if (proc->code[proc->IP] == BX)
-        proc->reg[BX - REGISTER_PLACEMENT] = stackPop(&proc->stk);
+        proc->reg[BX] = stackPop(&proc->stk);
     if (proc->code[proc->IP] == CX)
-        proc->reg[CX - REGISTER_PLACEMENT] = stackPop(&proc->stk);
+        proc->reg[CX] = stackPop(&proc->stk);
     if (proc->code[proc->IP] == DX)
-        proc->reg[DX - REGISTER_PLACEMENT] = stackPop(&proc->stk);
+        proc->reg[DX] = stackPop(&proc->stk);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue pushr(processor *proc)
+{
+    proc->IP++;
+
+    if (proc->code[proc->IP] == AX)
+        stackPush(&proc->stk, proc->reg[AX]);
+    else if (proc->code[proc->IP] == BX)
+        stackPush(&proc->stk, proc->reg[BX]);
+    else if (proc->code[proc->IP] == CX)
+        stackPush(&proc->stk, proc->reg[CX]);
+    else if (proc->code[proc->IP] == DX)
+        stackPush(&proc->stk, proc->reg[DX]);
 
     return INTERPRETER_CORRECT;
 }
@@ -97,7 +104,7 @@ returnValue pop(processor *proc)
 returnValue jmp(processor *proc)
 {
     proc->IP++;
-    proc->IP = proc->code[proc->IP];
+    proc->IP = proc->code[proc->IP + 1];
 
     return INTERPRETER_CORRECT;
 }

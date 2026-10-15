@@ -20,6 +20,10 @@ int main(int argc, char *argv[])
 
     closeFile(&filePointer);
 
+    // for (int i = 0; i < fileInfo.st_size / sizeof(int); i++)
+    //     printf("%d ", proc.code[i]);
+    // getchar();
+
     for (proc.IP = 0; proc.IP < count; proc.IP++)
     {
         switch (proc.code[proc.IP])
@@ -61,6 +65,11 @@ int main(int argc, char *argv[])
 
             case POPr:
                pop(&proc);
+
+                break;
+
+            case PUSHr:
+                pushr(&proc);
 
                 break;
 
