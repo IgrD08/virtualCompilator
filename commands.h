@@ -22,8 +22,17 @@ enum commands
     DIV                = 5,
     OUT_OF             = 6,
     POPr               = 7,
-    JMP                = 8,
-    PUSHr              = 9
+    PUSHr              = 8,
+    JMP                = 9,
+    JA                 = 10,
+    JAE                = 11,
+    JB                 = 12,
+    JBE                = 13,
+    JE                 = 14,
+    JNE                = 15,
+    IN_OF              = 16,
+    CALL               = 17,
+    RET                = 18
 };
 
 enum registerEnum

@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
                 break;
 
             case POPr:
-               pop(&proc);
+                pop(&proc);
 
                 break;
 
@@ -74,7 +74,47 @@ int main(int argc, char *argv[])
                 break;
 
             case JMP:
-               jmp(&proc);
+                jmp(&proc);
+
+                break;
+
+            case JA:
+                ja(&proc);
+
+                break;
+
+            case JAE:
+                jae(&proc);
+
+                break;
+
+            case JB:
+                jb(&proc);
+
+                break;
+
+            case JE:
+                je(&proc);
+
+                break;
+
+            case JNE:
+                jne(&proc);
+
+                break;
+
+            case IN_OF:
+                in(&proc);
+
+                break;
+
+            case CALL:
+                call(&proc);
+
+                break;
+
+            case RET:
+                ret(&proc);
 
                 break;
 

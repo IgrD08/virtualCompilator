@@ -3,7 +3,7 @@
 #include "virtualMachine.h"
 
 returnValue hlt(processor *proc)
-{
+{//TODO - переделать
     return PROGRAM_OVER;
 }
 //TODO - СДЕЛАТЬ ДВОЙНОЙ ПРОХОД
@@ -105,6 +105,98 @@ returnValue jmp(processor *proc)
 {
     proc->IP++;
     proc->IP = proc->code[proc->IP + 1];
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue ja(processor *proc)
+{
+    proc->IP++;
+
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
+
+    if (a > b)
+        jmp(proc);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue jae(processor *proc)
+{
+    proc->IP++;
+
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
+
+    if (a >= b)
+        jmp(proc);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue jb(processor *proc)
+{
+    proc->IP++;
+
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
+
+    if (a < b)
+        jmp(proc);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue jbe(processor *proc)
+{
+    proc->IP++;
+
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
+
+    if (a <= b)
+        jmp(proc);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue je(processor *proc)
+{
+    proc->IP++;
+
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
+
+    if (a == b)
+        jmp(proc);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue jne(processor *proc)
+{
+    proc->IP++;
+
+    int a = stackPop(&proc->stk);
+    int b = stackPop(&proc->stk);
+
+    if (a != b)
+        jmp(proc);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue in(processor *proc)
+{
+    proc->IP++;
+
+    int value = 0;
+
+    if(scanf("%d", &value) == 1)
+        stackPush(proc->stk, value);
+    else
+        return INTERPRETER_ERROR;
 
     return INTERPRETER_CORRECT;
 }

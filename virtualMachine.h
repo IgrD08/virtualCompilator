@@ -19,5 +19,11 @@ returnValue out(processor *proc);
 returnValue pop(processor *proc);
 returnValue pushr(processor *proc);
 returnValue jmp(processor *proc);
+returnValue ja(processor *proc);
+returnValue jae(processor *proc);
+returnValue jb(processor *proc);
+returnValue jbe(processor *proc);
+returnValue je(processor *proc);
+returnValue jne(processor *proc);
 
 #endif

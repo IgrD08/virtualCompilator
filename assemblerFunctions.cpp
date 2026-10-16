@@ -2,7 +2,7 @@
 #include "stack.h"
 #include "assembler.h"
 
-returnValue fileProc(fileInfoStruc_t *fileToReadInfo)
+returnValue readFromFile(fileInfoStruc_t *fileToReadInfo)
 {
     struct stat fileInfo;
     if (stat(fileToReadInfo->name, &fileInfo) == -1)
@@ -47,26 +47,242 @@ returnValue fileProc(fileInfoStruc_t *fileToReadInfo)
     return INTERPRETER_CORRECT;
 }
 
-// returnValue choseRegister(char *regist, int **data, int *dataIndex)
-// {printf("11\n");
-//     if (!strcmp(regist, "AX"))
-//         *(data[*dataIndex]) = AX;
-//     else if (!strcmp(regist, "BX"))
-//     {printf("12\n");
-//     printf("%p|||\n", *(data)[*dataIndex]);
-//         *(data)[*dataIndex] = BX;
-// printf("13\n");
-//     }
-//     else if (!strcmp(regist, "CX"))
-//         *(data)[*dataIndex] = CX;
-//     else if (!strcmp(regist, "DX"))
-//         *(data[*dataIndex]) = DX;
-//     else
-//     {
-//         printf("Register does not found");
-//
-//         return INTERPRETER_ERROR;
-//     }
-//
-//     return INTERPRETER_CORRECT;
-// }
+returnValue checkForLabel(fileInfoStruc_t *fileToReadInfo,
+                          dataStruc_t *data,
+                          readItemsStruc_t *enteredData)
+{
+    if (enteredData->string[0] == ':')
+    {
+        if ((enteredData->value = atoi(&enteredData->string[1])) == 0)//TODO - нужен ли atoi
+            return INTERPRETER_ERROR;
+
+        data->data[data->dataIndex] = data->labels[enteredData->value];
+        (data->dataIndex)++;
+    }
+    else
+    {
+        data->data[data->dataIndex] = enteredData->value;
+        (data->dataIndex)++;
+    }
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue choseRegister(fileInfoStruc_t *fileToReadInfo,
+                          dataStruc_t *data,
+                          readItemsStruc_t *enteredData)
+{
+    if (!strcmp(enteredData->string, "AX"))
+        data->data[data->dataIndex] = AX;
+    else if (!strcmp(enteredData->string, "BX"))
+        data->data[data->dataIndex] = BX;
+    else if (!strcmp(enteredData->string, "CX"))
+        data->data[data->dataIndex] = CX;
+    else if (!strcmp(enteredData->string, "DX"))
+        data->data[data->dataIndex] = DX;
+    else
+    {
+        fprintf(stderr, "Register does not found");
+
+        return INTERPRETER_ERROR;
+    }
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
+                                  dataStruc_t *data,
+                                  readItemsStruc_t *enteredData)
+{
+    for (int i = 0; i < fileToReadInfo->numberOfLines; i++)
+    {
+        enteredData->command[0] = '\0';
+        enteredData->string[0] = '\0';
+        enteredData->value = 0;
+
+        if (sscanf(fileToReadInfo->individualLines[i], "%s", enteredData->command) <= 0)
+            continue;
+
+        switch (enteredData->command[0])
+        {
+            case 'P':
+                if (!strcmp(enteredData->command, "PUSH"))
+                {
+                    if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
+                        break;
+
+                    if (atoi(enteredData->string) == 0)
+                    {
+                        data->data[data->dataIndex] = PUSHr;
+                        (data->dataIndex)++;
+
+                        choseRegister(fileToReadInfo, data, enteredData);
+
+                        (data->dataIndex)++;
+                    }
+                    else
+                    {
+                        enteredData->value = atoi(enteredData->string);
+                        data->data[data->dataIndex] = PUSH;
+                        (data->dataIndex)++;
+                        data->data[data->dataIndex] = enteredData->value;
+                        (data->dataIndex)++;
+                    }
+                }
+
+                if (!strcmp(enteredData->command, "POPr"))
+                {
+                    if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
+                        break;
+
+                    data->data[data->dataIndex] = POPr;
+                    (data->dataIndex)++;
+
+                    choseRegister(fileToReadInfo, data, enteredData);
+
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case 'A':
+
+                if (!strcmp(enteredData->command, "ADD"))
+                {
+                    data->data[data->dataIndex] = ADD;
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case 'C':
+
+                if (!strcmp(enteredData->command, "CALL"))
+                {
+                    data->data[data->dataIndex] = CALL;
+                    (data->dataIndex)++;
+                }
+
+                if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
+                    break;
+
+                if (checkForLabel(fileToReadInfo, data, enteredData) == INTERPRETER_ERROR)
+                    break;
+
+                break;
+
+            case 'R':
+
+                if (!strcmp(enteredData->command, "RET"))
+                {
+                    data->data[data->dataIndex] = RET;
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case 'S':
+
+                if (!strcmp(enteredData->command, "SUB"))
+                {
+                    data->data[data->dataIndex] = SUB;
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case 'M':
+
+                if (!strcmp(enteredData->command, "MUL"))
+                {
+                    data->data[data->dataIndex] = MUL;
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case 'D':
+
+                if (!strcmp(enteredData->command, "DIV"))
+                {
+                    data->data[data->dataIndex] = DIV;
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case 'O':
+
+                if (!strcmp(enteredData->command, "OUT_OF"))
+                {
+                    data->data[data->dataIndex] = OUT_OF;
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case 'J':
+
+                if (!strcmp(enteredData->command, "JMP"))
+                    data->data[data->dataIndex] = JMP;
+                else if (!strcmp(enteredData->command, "JA"))
+                    data->data[data->dataIndex] = JA;
+                else if (!strcmp(enteredData->command, "JAE"))
+                    data->data[data->dataIndex] = JAE;
+                else if (!strcmp(enteredData->command, "JB"))
+                    data->data[data->dataIndex] = JB;
+                else if (!strcmp(enteredData->command, "JBE"))
+                    data->data[data->dataIndex] = JBE;
+                else if (!strcmp(enteredData->command, "JE"))
+                    data->data[data->dataIndex] = JE;
+                else if (!strcmp(enteredData->command, "JNE"))
+                    data->data[data->dataIndex] = JNE;
+
+                (data->dataIndex)++;
+
+                if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
+                    break;
+
+                if (checkForLabel(fileToReadInfo, data, enteredData) == INTERPRETER_ERROR)
+                    break;
+
+                break;
+
+            case 'H':
+
+                if (!strcmp(enteredData->command, "HLT"))
+                {
+                    data->data[data->dataIndex] = HLT;
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case 'I':
+
+                if (!strcmp(enteredData->command, "IN_OF"))
+                {
+                    data->data[data->dataIndex] = IN_OF;
+                    (data->dataIndex)++;
+                }
+
+                break;
+
+            case ':':
+
+                if ((enteredData->value = atoi(&enteredData->command[1])) == 0)
+                    break;
+
+                data->labels[enteredData->value] = data->dataIndex;
+
+                break;
+
+            default:
+                fprintf(stderr, "No such enteredData->command");
+
+                break;
+        }
+    }
+
+    return INTERPRETER_CORRECT;
+}
