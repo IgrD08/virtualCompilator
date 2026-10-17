@@ -4,6 +4,7 @@
 struct processor
 {
     stack_t stk;
+    stack_t returnStk;
     int reg[5];
     int *code;
     int IP;
@@ -25,5 +26,8 @@ returnValue jb(processor *proc);
 returnValue jbe(processor *proc);
 returnValue je(processor *proc);
 returnValue jne(processor *proc);
+returnValue in(processor *proc);
+returnValue call(processor *proc);
+returnValue ret(processor *proc);
 
 #endif

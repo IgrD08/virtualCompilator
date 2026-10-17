@@ -6,7 +6,7 @@ returnValue hlt(processor *proc)
 {//TODO - переделать
     return PROGRAM_OVER;
 }
-//TODO - СДЕЛАТЬ ДВОЙНОЙ ПРОХОД
+
 returnValue push(processor *proc)
 {
     proc->IP++;
@@ -64,7 +64,7 @@ returnValue div(processor *proc)
 returnValue out(processor *proc)
 {
     int value = stackPop(&proc->stk);
-    printf("%d\n", value);
+    printf("<<%d>>\n", value);
 
     return INTERPRETER_CORRECT;
 }
@@ -104,6 +104,7 @@ returnValue pushr(processor *proc)
 returnValue jmp(processor *proc)
 {
     proc->IP++;
+
     proc->IP = proc->code[proc->IP + 1];
 
     return INTERPRETER_CORRECT;
@@ -111,8 +112,6 @@ returnValue jmp(processor *proc)
 
 returnValue ja(processor *proc)
 {
-    proc->IP++;
-
     int a = stackPop(&proc->stk);
     int b = stackPop(&proc->stk);
 
@@ -124,8 +123,6 @@ returnValue ja(processor *proc)
 
 returnValue jae(processor *proc)
 {
-    proc->IP++;
-
     int a = stackPop(&proc->stk);
     int b = stackPop(&proc->stk);
 
@@ -150,8 +147,6 @@ returnValue jb(processor *proc)
 
 returnValue jbe(processor *proc)
 {
-    proc->IP++;
-
     int a = stackPop(&proc->stk);
     int b = stackPop(&proc->stk);
 
@@ -163,8 +158,6 @@ returnValue jbe(processor *proc)
 
 returnValue je(processor *proc)
 {
-    proc->IP++;
-
     int a = stackPop(&proc->stk);
     int b = stackPop(&proc->stk);
 
@@ -176,8 +169,6 @@ returnValue je(processor *proc)
 
 returnValue jne(processor *proc)
 {
-    proc->IP++;
-
     int a = stackPop(&proc->stk);
     int b = stackPop(&proc->stk);
 
@@ -189,14 +180,30 @@ returnValue jne(processor *proc)
 
 returnValue in(processor *proc)
 {
-    proc->IP++;
-
     int value = 0;
 
     if(scanf("%d", &value) == 1)
-        stackPush(proc->stk, value);
+        stackPush(&proc->stk, value);
     else
         return INTERPRETER_ERROR;
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue call(processor *proc)
+{
+    jmp(proc);
+
+    stackPush(&proc->returnStk, proc->IP);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue ret(processor *proc)
+{
+    proc->IP = stackPop(&proc->returnStk);
+
+    jmp(proc);
 
     return INTERPRETER_CORRECT;
 }

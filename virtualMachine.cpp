@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
     processor proc = {};
     proc.stk = {};
     STACK_INIT(&(proc.stk), initialCapacity);
+    STACK_INIT(&(proc.returnStk), initialCapacity);
 
     struct stat fileInfo;
     if (stat("numericData.asm", &fileInfo) == -1) return INTERPRETER_ERROR;
