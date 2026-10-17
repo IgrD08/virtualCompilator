@@ -187,6 +187,8 @@ returnStatus printStackVerify(stack_t *stk, error flag)
 
                 fatalFlag = 1;
 
+                break;
+
             case FILE_INFO_ERROR:
 
                 fprintf(filepointer, "ERROR: Initialization did not complete correctly\n");
@@ -200,6 +202,8 @@ returnStatus printStackVerify(stack_t *stk, error flag)
                 fprintf(filepointer, "ERROR: Incorrect modification of data on the stack\n");
 
                 fatalFlag = 1;
+
+                break;
 
             default:
 
@@ -231,7 +235,7 @@ bool fileOpening(FILE **fp, const char *fileName, const char *fileFlag)
 {
     if ((*fp = fopen(fileName, fileFlag)) == NULL)
     {
-        fprintf(stderr, "ERROR: Failed to open/close file\n");
+        fprintf(stderr, "ERROR: Failed to open file %s\n", fileName);
 
         return 1;
     }
@@ -243,7 +247,7 @@ bool closeFile(FILE **fp)
 {
     if (fclose(*fp) == EOF)
     {
-        fprintf(stderr, "ERROR: Failed to open/close file\n");
+        fprintf(stderr, "ERROR: Failed to close file\n");
 
         return 1;
     }

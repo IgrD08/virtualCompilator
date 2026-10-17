@@ -7,8 +7,10 @@ struct processor
     stack_t returnStk;
     int reg[5];
     int *code;
-    int IP;
+    size_t IP;
 };
+
+returnValue processorDestroyer(processor *proc);
 
 returnValue hlt(processor *proc);
 returnValue push(processor *proc);

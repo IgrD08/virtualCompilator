@@ -142,10 +142,10 @@ returnStatus stackDump(stack_t *stk, FILE *fp)
 {
     #ifdef STACK_DEBUG
         fprintf(fp, "stack \"stk1\" [%p] created by %s() %s :%d\n{\n",
-               stk->data, stk->functionName, stk->fileName, stk->line);
+               stk, stk->functionName, stk->fileName, stk->line);
     #endif
 
-    fprintf(fp, "\tcapacity = %ld\n\tsize = %ld\n\tdata = [%p]\n\t{\n",
+    fprintf(fp, "\tcapacity = %zu\n\tsize = %zu\n\tdata = [%p]\n\t{\n",
            stk->capacity, stk->size, stk->data);
 
     for (size_t i = 0; i < stk->capacity; i++)

@@ -24,15 +24,17 @@ typedef int structEnum_t;
 #include <math.h>
 #include <stdint.h>
 #include <string.h>
-#include <windows.h>
+#ifdef _WIN32
+    #include <windows.h>
+#endif
 
 const structEnum_t POISON = -67;
 const size_t MAX = (size_t)(-1) / 2;
 
-const structEnum_t canary1 = (const structEnum_t)0xEDA;
-const structEnum_t canary2 = (const structEnum_t)0xBEDA;
-const structEnum_t canary3 = (const structEnum_t)0xE1DADEDA;
-const structEnum_t canary4 = (const structEnum_t)0xBEDADEDA;
+const structEnum_t canary1 = 0xEDA;
+const structEnum_t canary2 = 0xBEDA;
+const structEnum_t canary3 = (structEnum_t)0xE1DADEDA;
+const structEnum_t canary4 = (structEnum_t)0xBEDADEDA;
 
 enum error
 {

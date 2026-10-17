@@ -28,13 +28,11 @@ struct readItemsStruc_t
 };
 
 returnValue readFromFile(fileInfoStruc_t *fileToReadInfo);
-returnValue checkForLabel(fileInfoStruc_t *fileToReadInfo,
-                          dataStruc_t *data,
-                          readItemsStruc_t *enteredData);
-returnValue choseRegister(fileInfoStruc_t *fileToReadInfo,
-                          dataStruc_t *data,
-                          readItemsStruc_t *enteredData);
+returnValue checkForLabel(dataStruc_t *data, readItemsStruc_t *enteredData);
+returnValue choseRegister(dataStruc_t *data, readItemsStruc_t *enteredData);
 returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                                   dataStruc_t *data,
                                   readItemsStruc_t *enteredData);
+returnValue assemblerDestroyer(fileInfoStruc_t *fileToReadInfo, dataStruc_t *data);
+
 #endif

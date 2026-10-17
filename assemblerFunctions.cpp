@@ -14,7 +14,7 @@ returnValue readFromFile(fileInfoStruc_t *fileToReadInfo)
     if (fileOpening(&(fileToReadInfo->filePointer), fileToReadInfo->name, "r") == 1)
         return INTERPRETER_ERROR;
 
-    int realCount = fread(fileToReadInfo->buffer, sizeof(char), fileInfo.st_size, fileToReadInfo->filePointer);
+    int realCount = fread(fileToReadInfo->buffer, sizeof(char), (size_t)fileInfo.st_size, fileToReadInfo->filePointer);
 
     fileToReadInfo->buffer[realCount] = '\0';
 
@@ -28,7 +28,7 @@ returnValue readFromFile(fileInfoStruc_t *fileToReadInfo)
 
     pointer = fileToReadInfo->buffer;
 
-    if ((fileToReadInfo->individualLines = (char **)calloc(fileToReadInfo->numberOfLines, sizeof(char *))) == NULL)
+    if ((fileToReadInfo->individualLines = (char **)calloc((size_t)fileToReadInfo->numberOfLines, sizeof(char *))) == NULL)
         return INTERPRETER_ERROR;
 
     int i = 1;
@@ -47,9 +47,7 @@ returnValue readFromFile(fileInfoStruc_t *fileToReadInfo)
     return INTERPRETER_CORRECT;
 }
 
-returnValue checkForLabel(fileInfoStruc_t *fileToReadInfo,
-                          dataStruc_t *data,
-                          readItemsStruc_t *enteredData)
+returnValue checkForLabel(dataStruc_t *data, readItemsStruc_t *enteredData)
 {
     if (enteredData->string[0] == ':')
     {
@@ -68,9 +66,7 @@ returnValue checkForLabel(fileInfoStruc_t *fileToReadInfo,
     return INTERPRETER_CORRECT;
 }
 
-returnValue choseRegister(fileInfoStruc_t *fileToReadInfo,
-                          dataStruc_t *data,
-                          readItemsStruc_t *enteredData)
+returnValue choseRegister(dataStruc_t *data, readItemsStruc_t *enteredData)
 {
     if (!strcmp(enteredData->string, "AX"))
         data->data[data->dataIndex] = AX;
@@ -116,7 +112,7 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                         data->data[data->dataIndex] = PUSHr;
                         (data->dataIndex)++;
 
-                        choseRegister(fileToReadInfo, data, enteredData);
+                        choseRegister(data, enteredData);
 
                         (data->dataIndex)++;
                     }
@@ -138,7 +134,7 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                     data->data[data->dataIndex] = POPr;
                     (data->dataIndex)++;
 
-                    choseRegister(fileToReadInfo, data, enteredData);
+                    choseRegister(data, enteredData);
 
                     (data->dataIndex)++;
                 }
@@ -166,7 +162,7 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                 if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
                     break;
 
-                if (checkForLabel(fileToReadInfo, data, enteredData) == INTERPRETER_ERROR)
+                if (checkForLabel(data, enteredData) == INTERPRETER_ERROR)
                     break;
 
                 break;
@@ -243,7 +239,7 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                 if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
                     break;
 
-                if (checkForLabel(fileToReadInfo, data, enteredData) == INTERPRETER_ERROR)
+                if (checkForLabel(data, enteredData) == INTERPRETER_ERROR)
                     break;
 
                 break;
@@ -283,6 +279,15 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                 break;
         }
     }
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue assemblerDestroyer(fileInfoStruc_t *fileToReadInfo, dataStruc_t *data)
+{
+    free(data->data);
+    free(fileToReadInfo->individualLines);
+    free(fileToReadInfo->buffer);
 
     return INTERPRETER_CORRECT;
 }

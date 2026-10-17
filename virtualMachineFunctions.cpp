@@ -2,9 +2,23 @@
 #include "stack.h"
 #include "virtualMachine.h"
 
+returnValue processorDestroyer(processor *proc)
+{
+    stackDestroy(&proc->stk);
+    stackDestroy(&proc->stk);
+
+    free(proc->code);
+
+    return INTERPRETER_CORRECT;
+}
+
 returnValue hlt(processor *proc)
-{//TODO - переделать
-    return PROGRAM_OVER;
+{
+    processorDestroyer(proc);
+
+    exit(EXIT_SUCCESS);
+
+    return INTERPRETER_CORRECT;
 }
 
 returnValue push(processor *proc)
@@ -103,9 +117,9 @@ returnValue pushr(processor *proc)
 
 returnValue jmp(processor *proc)
 {
-    proc->IP++;
+    proc->IP = (size_t)proc->code[proc->IP + 1];
 
-    proc->IP = proc->code[proc->IP + 1];
+    proc->IP--;//возникает, так как в virtualMachine в цикле каждую итерацию proc->IP увеличивается на 1
 
     return INTERPRETER_CORRECT;
 }
@@ -192,18 +206,16 @@ returnValue in(processor *proc)
 
 returnValue call(processor *proc)
 {
-    jmp(proc);
+    stackPush(&proc->returnStk, proc->IP + 1);
 
-    stackPush(&proc->returnStk, proc->IP);
+    jmp(proc);
 
     return INTERPRETER_CORRECT;
 }
 
 returnValue ret(processor *proc)
 {
-    proc->IP = stackPop(&proc->returnStk);
-
-    jmp(proc);
+    proc->IP = (size_t)stackPop(&proc->returnStk);
 
     return INTERPRETER_CORRECT;
 }

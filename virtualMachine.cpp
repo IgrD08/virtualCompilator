@@ -2,7 +2,7 @@
 #include "stack.h"
 #include "virtualMachine.h"
 
-int main(int argc, char *argv[])
+int main()//int argc, char *argv[]
 {
     processor proc = {};
     proc.stk = {};
@@ -10,23 +10,27 @@ int main(int argc, char *argv[])
     STACK_INIT(&(proc.returnStk), initialCapacity);
 
     struct stat fileInfo;
-    if (stat("numericData.asm", &fileInfo) == -1) return INTERPRETER_ERROR;
+    if (stat("numericData.asm", &fileInfo) == -1)
+        return INTERPRETER_ERROR;
 
-    proc.code = (int *) calloc(fileInfo.st_size / sizeof(int), sizeof(int));
+    proc.code = (int *) calloc((size_t)fileInfo.st_size / sizeof(int), sizeof(int));
 
     FILE *filePointer = NULL;
-    fileOpening(&filePointer, "numericData.asm", "r");
+    if (fileOpening(&filePointer, "numericData.asm", "rb") == 1)
+            return 1;
 
-    int count = fread(proc.code, sizeof(int), fileInfo.st_size / sizeof(int), filePointer);
+    size_t count = fread(proc.code, sizeof(int), (size_t)fileInfo.st_size / sizeof(int), filePointer);
 
     closeFile(&filePointer);
 
-    // for (int i = 0; i < fileInfo.st_size / sizeof(int); i++)
+    // for (size_t i = 0; i < (size_t)fileInfo.st_size / sizeof(int); i++)
     //     printf("%d ", proc.code[i]);
     // getchar();
 
     for (proc.IP = 0; proc.IP < count; proc.IP++)
     {
+    // printf("COMMAND NUMBER: <%d>", proc.code[proc.IP]);
+    // getchar();
         switch (proc.code[proc.IP])
         {
             case HLT:
@@ -124,11 +128,10 @@ int main(int argc, char *argv[])
 
                 break;
         }
+        // stackDump(&proc.stk, stdout);
     }
 
-    stackDestroy(&proc.stk);
-
-    free(proc.code);
+    processorDestroyer(&proc);
 
     return INTERPRETER_CORRECT;
 }

@@ -1,1 +1,37 @@
 
+ERROR: Memory allocation error
+stack "stk1" [0x79cd5cef0190] created by (null)() (null) :0
+{
+	capacity = 0
+	size = 0
+	data = [0x79ed5dfe0034]
+	{
+	}
+}
+ERROR: Memory allocation error
+stack "stk1" [0x6c9a70cf0190] created by (null)() (null) :0
+{
+	capacity = 0
+	size = 0
+	data = [0x6cba71de0034]
+	{
+	}
+}
+ERROR: Memory allocation error
+stack "stk1" [0x7231aa2f0190] created by (null)() (null) :0
+{
+	capacity = 0
+	size = 0
+	data = [0x7251ab3e0034]
+	{
+	}
+}
+ERROR: Memory allocation error
+stack "stk1" [0x6e8919ef0190] created by (null)() (null) :0
+{
+	capacity = 0
+	size = 0
+	data = [0x6ea91afe0034]
+	{
+	}
+}
