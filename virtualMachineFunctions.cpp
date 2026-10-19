@@ -131,6 +131,8 @@ returnValue ja(processor *proc)
 
     if (a > b)
         jmp(proc);
+    else
+        proc->IP++;
 
     return INTERPRETER_CORRECT;
 }
@@ -142,6 +144,8 @@ returnValue jae(processor *proc)
 
     if (a >= b)
         jmp(proc);
+    else
+        proc->IP++;
 
     return INTERPRETER_CORRECT;
 }
@@ -155,6 +159,8 @@ returnValue jb(processor *proc)
 
     if (a < b)
         jmp(proc);
+    else
+        proc->IP++;
 
     return INTERPRETER_CORRECT;
 }
@@ -166,6 +172,8 @@ returnValue jbe(processor *proc)
 
     if (a <= b)
         jmp(proc);
+    else
+        proc->IP++;
 
     return INTERPRETER_CORRECT;
 }
@@ -177,6 +185,8 @@ returnValue je(processor *proc)
 
     if (a == b)
         jmp(proc);
+    else
+        proc->IP++;
 
     return INTERPRETER_CORRECT;
 }
@@ -188,6 +198,8 @@ returnValue jne(processor *proc)
 
     if (a != b)
         jmp(proc);
+    else
+        proc->IP++;
 
     return INTERPRETER_CORRECT;
 }
@@ -216,6 +228,24 @@ returnValue call(processor *proc)
 returnValue ret(processor *proc)
 {
     proc->IP = (size_t)stackPop(&proc->returnStk);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue pushm(processor *proc)
+{
+    proc->IP++;
+
+    stackPush(&proc->stk, proc->RAM[proc->code[proc->IP]]);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue popm(processor *proc)
+{
+    proc->IP++;
+
+    proc->RAM[proc->code[proc->IP]] = stackPop(&proc->stk);
 
     return INTERPRETER_CORRECT;
 }

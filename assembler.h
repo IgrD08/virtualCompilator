@@ -34,5 +34,6 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                                   dataStruc_t *data,
                                   readItemsStruc_t *enteredData);
 returnValue assemblerDestroyer(fileInfoStruc_t *fileToReadInfo, dataStruc_t *data);
+returnValue writeToFile(dataStruc_t *data, char *fileName);
 
 #endif

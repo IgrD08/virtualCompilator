@@ -2,11 +2,18 @@
 #include "stack.h"
 #include "assembler.h"
 
-int main()// int argc, char *argv[]
+int main(int argc, char *argv[])
 {
-    fileInfoStruc_t fileToReadInfo = {NULL, "test.asm", NULL, 0, NULL};
+    if (argc < 2)
+    {
+        fprintf(stderr, "Insufficient files\n");
 
-    if (readFromFile(&fileToReadInfo) == INTERPRETER_ERROR)
+        return 1;
+    }
+
+    fileInfoStruc_t fileToReadInfo = {NULL, argv[1], NULL, 0, NULL};
+
+    if (readFromFile(&fileToReadInfo) != INTERPRETER_CORRECT)
         return 1;
 
     dataStruc_t data = {};
@@ -20,24 +27,20 @@ int main()// int argc, char *argv[]
     for (int i = 0; i < 2; i++)
     {
         rewriteTextIntoNumber(&fileToReadInfo, &data, &enteredData);
+
         if (i == 0)
             data.dataIndex = 0;
     }
 
-    FILE *filePointerWrite = NULL;
-    if (fileOpening(&filePointerWrite, "numericData.asm", "wb") == 1)
-        return 1;
-
-    fwrite(data.data, sizeof(int), (size_t)data.dataIndex, filePointerWrite);//TODO - байтовый uint8-t
-
-    if (closeFile(&filePointerWrite) == 1)
+    if (writeToFile(&data, argv[2]) != INTERPRETER_CORRECT)
         return 1;
 
     // for (int i = 0; i < data.dataIndex; i++)
     // {
     //     printf("%d ", data.data[i]);
     // }
-    // printf("\n%d %d %d %d", data.labels[0], data.labels[1], data.labels[2], data.labels[3]);
+    // printf("\n%d %d %d %d\n", data.labels[0], data.labels[1], data.labels[2], data.labels[3]);
+
     assemblerDestroyer(&fileToReadInfo, &data);
 
     return 0;

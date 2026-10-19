@@ -32,7 +32,9 @@ enum commands
     JNE                = 15,
     IN_OF              = 16,
     CALL               = 17,
-    RET                = 18
+    RET                = 18,
+    PUSHm              = 19,
+    POPm               = 20,
 };
 
 enum registerEnum
@@ -49,7 +51,5 @@ enum returnValue
     INTERPRETER_ERROR   = -1,
     INTERPRETER_CORRECT = 0
 };
-
-const int initialCapacity = 10;
 
 #endif

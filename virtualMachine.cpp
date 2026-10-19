@@ -2,15 +2,28 @@
 #include "stack.h"
 #include "virtualMachine.h"
 
-int main()//int argc, char *argv[]
+returnValue(*arrayOfFunctionPointers[NUMBER_OF_FUNCTIONS])(processor *proc) = {
+                                                                               hlt, push, add, sub, mul, div,
+                                                                               out, pop, pushr, jmp, ja, jae,
+                                                                               jb, jbe, je, jne, in, call, ret,
+                                                                               pushm, popm
+                                                                              };
+
+int main(int argc, char *argv[])
 {
+    if (argc < 1)
+    {
+        fprintf(stderr, "Insufficient files\n");
+        return 1;
+    }
+
     processor proc = {};
     proc.stk = {};
     STACK_INIT(&(proc.stk), initialCapacity);
     STACK_INIT(&(proc.returnStk), initialCapacity);
 
     struct stat fileInfo;
-    if (stat("numericData.asm", &fileInfo) == -1)
+    if (stat(argv[1], &fileInfo) == -1)
         return INTERPRETER_ERROR;
 
     proc.code = (int *) calloc((size_t)fileInfo.st_size / sizeof(int), sizeof(int));
@@ -21,114 +34,29 @@ int main()//int argc, char *argv[]
 
     size_t count = fread(proc.code, sizeof(int), (size_t)fileInfo.st_size / sizeof(int), filePointer);
 
-    closeFile(&filePointer);
+    if (closeFile(&filePointer) == 1)
+        return 1;
 
-    // for (size_t i = 0; i < (size_t)fileInfo.st_size / sizeof(int); i++)
-    //     printf("%d ", proc.code[i]);
-    // getchar();
+    for (size_t i = 0; i < (size_t)fileInfo.st_size / sizeof(int); i++)
+        printf("%d ", proc.code[i]);
+    getchar();
 
     for (proc.IP = 0; proc.IP < count; proc.IP++)
     {
-    // printf("COMMAND NUMBER: <%d>", proc.code[proc.IP]);
-    // getchar();
-        switch (proc.code[proc.IP])
+        printf("COMMAND NUMBER: <%d>", proc.code[proc.IP]);
+        getchar();
+
+        if (proc.code[proc.IP] >= 0 || proc.code[proc.IP] <= NUMBER_OF_FUNCTIONS)
+            arrayOfFunctionPointers[proc.code[proc.IP]](&proc);
+        else
         {
-            case HLT:
-                hlt(&proc);
+            fprintf(stderr, "Segmentation fault...");
 
-                break;
-
-            case PUSH:
-                push(&proc);
-
-                break;
-
-            case ADD:
-                add(&proc);
-
-                break;
-
-            case SUB:
-                sub(&proc);
-
-                break;
-
-            case MUL:
-                mul(&proc);
-
-                break;
-
-            case DIV:
-                div(&proc);
-
-                break;
-
-            case OUT_OF:
-                out(&proc);
-
-                break;
-
-            case POPr:
-                pop(&proc);
-
-                break;
-
-            case PUSHr:
-                pushr(&proc);
-
-                break;
-
-            case JMP:
-                jmp(&proc);
-
-                break;
-
-            case JA:
-                ja(&proc);
-
-                break;
-
-            case JAE:
-                jae(&proc);
-
-                break;
-
-            case JB:
-                jb(&proc);
-
-                break;
-
-            case JE:
-                je(&proc);
-
-                break;
-
-            case JNE:
-                jne(&proc);
-
-                break;
-
-            case IN_OF:
-                in(&proc);
-
-                break;
-
-            case CALL:
-                call(&proc);
-
-                break;
-
-            case RET:
-                ret(&proc);
-
-                break;
-
-            default:
-                fprintf(stderr, "No such command\n");
-
-                break;
+            return 1;
         }
-        // stackDump(&proc.stk, stdout);
+        stackDump(&proc.stk, stdout);
+
+        printf("%d %d\n", proc.RAM[0], proc.RAM[1]);
     }
 
     processorDestroyer(&proc);

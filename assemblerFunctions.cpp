@@ -107,7 +107,21 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                     if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
                         break;
 
-                    if (atoi(enteredData->string) == 0)
+                    if (sscanf(fileToReadInfo->individualLines[i], "%*s %d", &enteredData->value) == 1)
+                    {
+                        data->data[data->dataIndex] = PUSH;
+                        (data->dataIndex)++;
+                        data->data[data->dataIndex] = enteredData->value;
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s [%d]", &enteredData->value) == 1)
+                    {
+                        data->data[data->dataIndex] = PUSHm;
+                        (data->dataIndex)++;
+                        data->data[data->dataIndex] = enteredData->value;
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) == 1)
                     {
                         data->data[data->dataIndex] = PUSHr;
                         (data->dataIndex)++;
@@ -116,27 +130,29 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
 
                         (data->dataIndex)++;
                     }
-                    else
-                    {
-                        enteredData->value = atoi(enteredData->string);
-                        data->data[data->dataIndex] = PUSH;
-                        (data->dataIndex)++;
-                        data->data[data->dataIndex] = enteredData->value;
-                        (data->dataIndex)++;
-                    }
                 }
 
-                if (!strcmp(enteredData->command, "POPr"))
+                if (!strcmp(enteredData->command, "POP"))
                 {
                     if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
                         break;
 
-                    data->data[data->dataIndex] = POPr;
-                    (data->dataIndex)++;
+                    if (sscanf(fileToReadInfo->individualLines[i], "%*s [%d]", &enteredData->value) == 1)
+                    {
+                        data->data[data->dataIndex] = POPm;
+                        (data->dataIndex)++;
+                        data->data[data->dataIndex] = enteredData->value;
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) == 1)
+                    {
+                        data->data[data->dataIndex] = POPr;
+                        (data->dataIndex)++;
 
-                    choseRegister(data, enteredData);
+                        choseRegister(data, enteredData);
 
-                    (data->dataIndex)++;
+                        (data->dataIndex)++;
+                    }
                 }
 
                 break;
@@ -288,6 +304,20 @@ returnValue assemblerDestroyer(fileInfoStruc_t *fileToReadInfo, dataStruc_t *dat
     free(data->data);
     free(fileToReadInfo->individualLines);
     free(fileToReadInfo->buffer);
+
+    return INTERPRETER_CORRECT;
+}
+
+returnValue writeToFile(dataStruc_t *data, char *fileName)
+{
+    FILE *filePointerWrite = NULL;
+    if (fileOpening(&filePointerWrite, fileName, "wb") == 1)
+        return INTERPRETER_ERROR;
+
+    fwrite(data->data, sizeof(int), (size_t)data->dataIndex, filePointerWrite);//TODO - байтовый uint8-t
+
+    if (closeFile(&filePointerWrite) == 1)
+        return INTERPRETER_ERROR;
 
     return INTERPRETER_CORRECT;
 }
