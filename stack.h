@@ -90,6 +90,8 @@ error allocationCheck(structEnum_t *ptr);
 returnStatus stackDump(stack_t *stk, FILE *fp);
 bool fileOpening(FILE **fp, const char *fileName, const char *fileFlag);
 bool closeFile(FILE **fp);
+
+returnStatus logStackError(stack_t *stk, error flag);
 returnStatus printStackVerify(stack_t *stk, error flag);
 
 #endif

@@ -8,7 +8,7 @@ returnValue readFromFile(fileInfoStruc_t *fileToReadInfo)
     if (stat(fileToReadInfo->name, &fileInfo) == -1)
         return INTERPRETER_ERROR;
 
-    if ((fileToReadInfo->buffer = (char *)(calloc(fileInfo.st_size + 1, sizeof(char)))) == NULL)
+    if ((fileToReadInfo->buffer = (char *)(calloc((size_t)fileInfo.st_size + 1, sizeof(char)))) == NULL)
         return INTERPRETER_ERROR;
 
     if (fileOpening(&(fileToReadInfo->filePointer), fileToReadInfo->name, "r") == 1)
@@ -78,7 +78,7 @@ returnValue choseRegister(dataStruc_t *data, readItemsStruc_t *enteredData)
         data->data[data->dataIndex] = DX;
     else
     {
-        fprintf(stderr, "Register does not found");
+        fprintf(stderr, "Register does not found\n");
 
         return INTERPRETER_ERROR;
     }
@@ -109,25 +109,54 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
 
                     if (sscanf(fileToReadInfo->individualLines[i], "%*s %d", &enteredData->value) == 1)
                     {
-                        data->data[data->dataIndex] = PUSH;
+                        data->data[data->dataIndex] = PUSH | 0x20;
                         (data->dataIndex)++;
+
                         data->data[data->dataIndex] = enteredData->value;
                         (data->dataIndex)++;
                     }
                     else if (sscanf(fileToReadInfo->individualLines[i], "%*s [%d]", &enteredData->value) == 1)
                     {
-                        data->data[data->dataIndex] = PUSHm;
+                        data->data[data->dataIndex] = PUSH | 0x20 | 0x80;
+                        (data->dataIndex)++;
+
+                        data->data[data->dataIndex] = enteredData->value;
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s [%s + %d]", enteredData->string, &enteredData->value) == 2)
+                    {
+                        data->data[data->dataIndex] = PUSH | 0x20 | 0x40 | 0x80;
+                        (data->dataIndex)++;
+
+                        choseRegister(data, enteredData);
                         (data->dataIndex)++;
                         data->data[data->dataIndex] = enteredData->value;
                         (data->dataIndex)++;
                     }
-                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) == 1)
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s %s + %d", enteredData->string, &enteredData->value) == 2)
                     {
-                        data->data[data->dataIndex] = PUSHr;
+                        data->data[data->dataIndex] = PUSH | 0x20 | 0x40;
                         (data->dataIndex)++;
 
                         choseRegister(data, enteredData);
+                        (data->dataIndex)++;
+                        data->data[data->dataIndex] = enteredData->value;
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s [%[^]]s", enteredData->string) == 1)
+                    {
+                        data->data[data->dataIndex] = PUSH | 0x40 | 0x80;
+                        (data->dataIndex)++;
 
+                        choseRegister(data, enteredData);
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) == 1)
+                    {
+                        data->data[data->dataIndex] = PUSH | 0x40;
+                        (data->dataIndex)++;
+
+                        choseRegister(data, enteredData);
                         (data->dataIndex)++;
                     }
                 }
@@ -139,18 +168,47 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
 
                     if (sscanf(fileToReadInfo->individualLines[i], "%*s [%d]", &enteredData->value) == 1)
                     {
-                        data->data[data->dataIndex] = POPm;
+                        data->data[data->dataIndex] = POP | 0x20 | 0x80;
                         (data->dataIndex)++;
                         data->data[data->dataIndex] = enteredData->value;
                         (data->dataIndex)++;
                     }
-                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) == 1)
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s [%s + %d]", enteredData->string, &enteredData->value) == 2)
                     {
-                        data->data[data->dataIndex] = POPr;
+                        data->data[data->dataIndex] = POP | 0x20 | 0x40 | 0x80;
                         (data->dataIndex)++;
 
                         choseRegister(data, enteredData);
+                        (data->dataIndex)++;
 
+                        data->data[data->dataIndex] = enteredData->value;
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s %s + %d", enteredData->string, &enteredData->value) == 2)
+                    {
+                        data->data[data->dataIndex] = POP | 0x20 | 0x40;
+                        (data->dataIndex)++;
+
+                        choseRegister(data, enteredData);
+                        (data->dataIndex)++;
+
+                        data->data[data->dataIndex] = enteredData->value;
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s [%[^]]s", enteredData->string) == 1)
+                    {
+                        data->data[data->dataIndex] = POP | 0x40 | 0x80;
+                        (data->dataIndex)++;
+
+                        choseRegister(data, enteredData);
+                        (data->dataIndex)++;
+                    }
+                    else if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) == 1)
+                    {
+                        data->data[data->dataIndex] = POP | 0x40;
+                        (data->dataIndex)++;
+
+                        choseRegister(data, enteredData);
                         (data->dataIndex)++;
                     }
                 }
@@ -218,6 +276,18 @@ returnValue rewriteTextIntoNumber(fileInfoStruc_t *fileToReadInfo,
                 if (!strcmp(enteredData->command, "DIV"))
                 {
                     data->data[data->dataIndex] = DIV;
+                    (data->dataIndex)++;
+                }
+
+                if (!strcmp(enteredData->command, "DRAW"))
+                {
+                    if (sscanf(fileToReadInfo->individualLines[i], "%*s %s", enteredData->string) <= 0)
+                        break;
+
+                    data->data[data->dataIndex] = DRAW;
+                    (data->dataIndex)++;
+
+                    choseRegister(data, enteredData);
                     (data->dataIndex)++;
                 }
 
@@ -311,12 +381,12 @@ returnValue assemblerDestroyer(fileInfoStruc_t *fileToReadInfo, dataStruc_t *dat
 returnValue writeToFile(dataStruc_t *data, char *fileName)
 {
     FILE *filePointerWrite = NULL;
-    if (fileOpening(&filePointerWrite, fileName, "wb") == 1)
+    if (fileOpening(&filePointerWrite, fileName, "wb"))
         return INTERPRETER_ERROR;
 
     fwrite(data->data, sizeof(int), (size_t)data->dataIndex, filePointerWrite);//TODO - байтовый uint8-t
 
-    if (closeFile(&filePointerWrite) == 1)
+    if (closeFile(&filePointerWrite))
         return INTERPRETER_ERROR;
 
     return INTERPRETER_CORRECT;

@@ -5,11 +5,34 @@
 returnValue processorDestroyer(processor *proc)
 {
     stackDestroy(&proc->stk);
-    stackDestroy(&proc->stk);
+    stackDestroy(&proc->returnStk);
 
     free(proc->code);
 
     return INTERPRETER_CORRECT;
+}
+
+void processorDump(processor *proc, size_t codeLen)
+{
+    stackDump(&proc->stk, stdout);
+
+    for (size_t i = 0; i < codeLen; i++)
+    {
+        printf("%d ", proc->code[i]);
+    }
+
+    printf("\n");
+
+    for (size_t i = 0; i < 2 * proc->IP - 1; i++)
+    {
+        printf(" ");
+    }
+
+    printf("^\n");
+
+    getchar();
+
+    return;
 }
 
 returnValue hlt(processor *proc)
@@ -23,9 +46,28 @@ returnValue hlt(processor *proc)
 
 returnValue push(processor *proc)
 {
-    proc->IP++;
+    int res = 0;
+    int *args = &proc->code[proc->IP + 1];
+    int commandCode = proc->code[proc->IP];
 
-    stackPush(&proc->stk, proc->code[proc->IP]);
+    if (commandCode & 0x20)
+    {
+        res += *args;
+        args++;
+        proc->IP++;
+    }
+    if (commandCode & 0x40)
+    {
+        res += proc->reg[*args];
+        args++;
+        proc->IP++;
+    }
+    if (commandCode & 0x80)
+    {
+        res = proc->RAM[res];
+    }
+
+    stackPush(&proc->stk, res);
 
     return INTERPRETER_CORRECT;
 }
@@ -85,32 +127,37 @@ returnValue out(processor *proc)
 
 returnValue pop(processor *proc)
 {
-    proc->IP++;
+    int res = 0;
+    int regIndex = -1;
+    int *args = &proc->code[proc->IP + 1];
+    int commandCode = proc->code[proc->IP];
 
-    if (proc->code[proc->IP] == AX)
-        proc->reg[AX] = stackPop(&proc->stk);
-    if (proc->code[proc->IP] == BX)
-        proc->reg[BX] = stackPop(&proc->stk);
-    if (proc->code[proc->IP] == CX)
-        proc->reg[CX] = stackPop(&proc->stk);
-    if (proc->code[proc->IP] == DX)
-        proc->reg[DX] = stackPop(&proc->stk);
+    if (commandCode & 0x40)
+    {
+        regIndex = *args;
 
-    return INTERPRETER_CORRECT;
-}
+        res += proc->reg[regIndex];
+        args++;
+        proc->IP++;
 
-returnValue pushr(processor *proc)
-{
-    proc->IP++;
+    }
+    if (commandCode & 0x20)
+    {
+        res += *args;
+        args++;
+        proc->IP++;
+    }
 
-    if (proc->code[proc->IP] == AX)
-        stackPush(&proc->stk, proc->reg[AX]);
-    else if (proc->code[proc->IP] == BX)
-        stackPush(&proc->stk, proc->reg[BX]);
-    else if (proc->code[proc->IP] == CX)
-        stackPush(&proc->stk, proc->reg[CX]);
-    else if (proc->code[proc->IP] == DX)
-        stackPush(&proc->stk, proc->reg[DX]);
+    int valueToStore = stackPop(&proc->stk);
+
+    if (commandCode & 0x80)
+    {
+        proc->RAM[res] = valueToStore;
+    }
+    else if (commandCode & 0x40)
+    {
+        proc->reg[regIndex] = valueToStore;
+    }
 
     return INTERPRETER_CORRECT;
 }
@@ -232,20 +279,22 @@ returnValue ret(processor *proc)
     return INTERPRETER_CORRECT;
 }
 
-returnValue pushm(processor *proc)
+returnValue draw(processor *proc)
 {
     proc->IP++;
 
-    stackPush(&proc->stk, proc->RAM[proc->code[proc->IP]]);
+    size_t size = proc->reg[proc->code[proc->IP]];
 
-    return INTERPRETER_CORRECT;
-}
+    for (size_t i = 0; i < size; i++)
+    {
+        for (size_t j = 0; j < size; j++)
+        {
+            printf("[%c]", proc->RAM[size * i + j]);
+        }
 
-returnValue popm(processor *proc)
-{
-    proc->IP++;
+        printf("\n");
+    }
 
-    proc->RAM[proc->code[proc->IP]] = stackPop(&proc->stk);
 
     return INTERPRETER_CORRECT;
 }

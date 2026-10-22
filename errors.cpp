@@ -112,115 +112,80 @@ error allocationCheck(structEnum_t *ptr)
 
 returnStatus printStackVerify(stack_t *stk, error flag)
 {
+    if (flag == CORRECT && stk != NULL)
+    {
+        return NORMAL_STATUS;
+    }
+
+    return logStackError(stk, flag);
+}
+
+returnStatus logStackError(stack_t *stk, error flag)
+{
     FILE *filepointer = NULL;
-
-    size_t fatalFlag = 0;
-
     if (fileOpening(&filepointer, "errors.log", "a") != 0)
     {
         return ERROR_STATUS;
     }
 
+    returnStatus status = ERROR_STATUS;
+    bool needDump = false;
+
     if (stk == NULL)
     {
         fprintf(filepointer, "ERROR: The stack was created incorrectly\n");
-
-        if (closeFile(&filepointer) != 0)
-        {
-            fatalFlag = 1;
-        }
     }
-
-    if (!fatalFlag)
+    else
     {
         switch (flag)
         {
             case CORRECT:
-
-                fatalFlag = 0;
-
+                status = NORMAL_STATUS;
                 break;
 
             case ZERO_STACK:
-
                 fprintf(filepointer, "ERROR: The stack was created incorrectly\n");
-
-                fatalFlag = 1;
-
                 break;
 
             case ALLOCATION_ERROR:
-
                 fprintf(filepointer, "ERROR: Memory allocation error\n");
-
-                fatalFlag = 2;
-
+                needDump = true;
                 break;
 
             case INCORRECT_POINTER:
-
                 fprintf(filepointer, "ERROR: A null pointer was passed\n");
-
-                fatalFlag = 1;
-
                 break;
 
             case INITIALIZATION_ERROR:
-
                 fprintf(filepointer, "ERROR: An incorrectly constructed test was submitted\n");
-
-                fatalFlag = 1;
-
                 break;
 
             case POP_NOT_POSSIBLE:
-
                 fprintf(filepointer, "ERROR: The function cannot be called\n");
-
-                fatalFlag = 2;
-
+                needDump = true;
                 break;
 
             case CANARY_DEAD:
-
                 fprintf(filepointer, "ERROR: One of canaries dead\n");
-
-                fatalFlag = 1;
-
                 break;
 
             case FILE_INFO_ERROR:
-
                 fprintf(filepointer, "ERROR: Initialization did not complete correctly\n");
-
-                fatalFlag = 2;
-
+                needDump = true;
                 break;
 
             case HASH_ERROR:
-
                 fprintf(filepointer, "ERROR: Incorrect modification of data on the stack\n");
-
-                fatalFlag = 1;
-
                 break;
 
             default:
-
                 break;
         }
-    }
 
-    if (fatalFlag == 1)
-    {
-        return ERROR_STATUS;
-    }
-
-    if (fatalFlag == 2)
-    {
-        stackDump(stk, filepointer);
-
-        return ERROR_STATUS;
+        if (needDump)
+        {
+            stackDump(stk, filepointer);
+        }
     }
 
     if (closeFile(&filepointer) != 0)
@@ -228,7 +193,7 @@ returnStatus printStackVerify(stack_t *stk, error flag)
         return ERROR_STATUS;
     }
 
-    return NORMAL_STATUS;
+    return status;
 }
 
 bool fileOpening(FILE **fp, const char *fileName, const char *fileFlag)

@@ -2,16 +2,14 @@
 #include "stack.h"
 #include "virtualMachine.h"
 
-returnValue(*arrayOfFunctionPointers[NUMBER_OF_FUNCTIONS])(processor *proc) = {
-                                                                               hlt, push, add, sub, mul, div,
-                                                                               out, pop, pushr, jmp, ja, jae,
-                                                                               jb, jbe, je, jne, in, call, ret,
-                                                                               pushm, popm
-                                                                              };
+returnValue(*arrayOfFunctionPointers[])(processor *proc) = {
+                                                            hlt, push, add, sub, mul, div, out, pop,
+                                                            jmp, ja, jae, jb, jbe, je, jne, in, call, ret, draw
+                                                           };
 
 int main(int argc, char *argv[])
 {
-    if (argc < 1)
+    if (argc < 2)
     {
         fprintf(stderr, "Insufficient files\n");
         return 1;
@@ -37,26 +35,28 @@ int main(int argc, char *argv[])
     if (closeFile(&filePointer) == 1)
         return 1;
 
-    for (size_t i = 0; i < (size_t)fileInfo.st_size / sizeof(int); i++)
-        printf("%d ", proc.code[i]);
-    getchar();
-
     for (proc.IP = 0; proc.IP < count; proc.IP++)
     {
-        printf("COMMAND NUMBER: <%d>", proc.code[proc.IP]);
-        getchar();
-
-        if (proc.code[proc.IP] >= 0 || proc.code[proc.IP] <= NUMBER_OF_FUNCTIONS)
-            arrayOfFunctionPointers[proc.code[proc.IP]](&proc);
+    //printf("COMMAND: %d\n", proc.code[proc.IP] & 0x1f);
+        if ((proc.code[proc.IP] & 0x1f) >= 0 || (proc.code[proc.IP] & 0x1f) <= sizeof(*arrayOfFunctionPointers) / 8)
+        {
+            arrayOfFunctionPointers[proc.code[proc.IP] & 0x1f](&proc);
+        }
         else
         {
             fprintf(stderr, "Segmentation fault...");
 
             return 1;
         }
-        stackDump(&proc.stk, stdout);
 
-        printf("%d %d\n", proc.RAM[0], proc.RAM[1]);
+        //stackDump(&proc.stk, stdout);
+
+        // processorDump(&proc, (size_t)fileInfo.st_size / sizeof(int)); //TODO - улучшить
+    }
+
+    for (int i = 0; i < 100; i++)
+    {
+        printf("%d ", proc.RAM[i]);
     }
 
     processorDestroyer(&proc);
